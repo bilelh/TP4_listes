@@ -24,7 +24,11 @@ public class SupprimerPizzaService extends MenuService {
 		if (exist == true) {
 		
 			pizzaDao.deletePizza(suppr_code) ;
+			
+			System.out.println("La pizza " + suppr_code + " a bien été supprimé ");
 		
+		} else {
+			System.out.println("La pizza n'existe pas ");
 		}
 		
 	}
