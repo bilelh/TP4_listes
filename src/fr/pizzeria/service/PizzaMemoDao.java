@@ -42,13 +42,31 @@ public class PizzaMemoDao implements IPizzaDao {
 	
 	public void updatePizza(String codePizza, Pizza pizza) {
 		
-		listPizza.remove (codePizza) ;
+		Pizza pizza_by_code ;
+		
+		for ( int i = 0 ; i < listPizza.size() ; i++ ) {
+			pizza_by_code = (Pizza) listPizza.get(i) ;
+			if (pizza_by_code.code.compareTo(codePizza) == 0) {
+				listPizza.remove(listPizza.get(i)) ;
+			}
+		
+		}
+		
 		listPizza.add(pizza) ;
 		
 	}
+	
 	public void deletePizza(String codePizza) {
 		
-		listPizza.remove(codePizza) ;
+		Pizza pizza_by_code ;
+		
+		for ( int i = 0 ; i < listPizza.size() ; i++ ) {
+			pizza_by_code = (Pizza) listPizza.get(i) ;
+			if (pizza_by_code.code.compareTo(codePizza) == 0) {
+				listPizza.remove(listPizza.get(i)) ;
+			}
+		
+		}
 		
 	}
 	
@@ -56,21 +74,40 @@ public class PizzaMemoDao implements IPizzaDao {
 		
 		
 		int indice = 0 ;
+		//Pizza pizza_by_code ;
+		Pizza pizza ;
+		
 		for ( int i = 0 ; i < listPizza.size() ; i++ ) {
-			if (listPizza.get(i).code.compareTo(codePizza) == 0) {
+			pizza = (Pizza) listPizza.get(i) ;
+			if (pizza.code.compareTo(codePizza) == 0) {
 				indice = i ;
+				//pizza_by_code = pizza ;
 				//Pizza findPizza = (Pizza).get(i) ;
 			}
+			//pizza_by_code = listPizza.get(indice) ;
 		}
 		
-		
-
-		return listPizza() ;
+		return (Pizza) listPizza.get(indice) ;
 		
 	}
 	
 	public boolean pizzaExists(String codePizza) {
 		
-		return listPizza.contains(codePizza) ;
+		Pizza pizza_by_code ;
+		boolean exist = false ;
+		int test = 0 ;
+		
+		for ( int i = 0 ; i < listPizza.size() ; i++ ) {
+			pizza_by_code = (Pizza) listPizza.get(i) ;
+			
+			if (pizza_by_code.code.contains(codePizza) == true) {
+				test +=1 ;
+			}
+			
+		}
+		if (test !=0) {
+			exist = true ;
+		}
+		return exist ;
 	}
 }

@@ -23,7 +23,7 @@ public class SupprimerPizzaService extends MenuService {
 		
 		if (exist == true) {
 		
-			pizzaDao.deletePizza(suppr_code);
+			pizzaDao.deletePizza(suppr_code) ;
 		
 		}
 		
