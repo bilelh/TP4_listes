@@ -20,7 +20,7 @@ public class ModifierPizzaService extends MenuService {
 		
 		boolean exist = pizzaDao.pizzaExists(modif_code) ;
 		
-		if (exist = true) {
+		if (exist == true) {
 			System.out.println("la pizza existe  ");
 			
 			
