@@ -57,14 +57,15 @@ public class PizzaMemoDao implements IPizzaDao {
 		
 		int indice = 0 ;
 		for ( int i = 0 ; i < listPizza.size() ; i++ ) {
-			if (listPizza.code.compareTo(codePizza) == 0) {
+			if (listPizza.get(i).code.compareTo(codePizza) == 0) {
 				indice = i ;
-				Pizza findPizza = (Pizza).get(i) ;
+				//Pizza findPizza = (Pizza).get(i) ;
 			}
 		}
 		
 		
-		return listPizza.get(indice) ;
+
+		return listPizza() ;
 		
 	}
 	

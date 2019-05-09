@@ -9,9 +9,10 @@ public class ListerPizzaService extends MenuService {
 		
 		System.out.println("Liste des pizzas  ");
 		
-		for ( int i = 0 ; i < pizzaDao.findAllPizzas().length ; i++) {
+		for ( int i = 0 ; i < pizzaDao.findAllPizzas().size() ; i++) {
+			Pizza pizza = (Pizza) pizzaDao.findAllPizzas().get(i) ;
 			
-			System.out.println(pizzaDao.findAllPizzas() [i].id + " _ " + pizzaDao.findAllPizzas() [i].code + " -> " + pizzaDao.findAllPizzas() [i].libelle + " ( " + String.format("%.2f" , pizzaDao.findAllPizzas() [i].prix) + "€ )");
+			System.out.println(pizza.id + " _ " + pizza.code + " -> " + pizza.libelle + " ( " + String.format("%.2f" , pizza.prix) + "€ )");
 		
 		}
 		
